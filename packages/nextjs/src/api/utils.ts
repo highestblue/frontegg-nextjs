@@ -54,14 +54,14 @@ export const CUSTOM_LOGIN_HEADER = 'frontegg-login-alias';
  */
 export function buildRequestHeaders(headers: Record<string, any>): Record<string, string> {
   let cookie = headers['cookie'];
-  if (cookie != null && typeof cookie === 'string') {
-    cookie = cookie.replace(/fe_session-[^=]*=[^;]*$/, '').replace(/fe_session-[^=]*=[^;]*;/, '');
-  }
-  if (cookie != null && typeof cookie === 'object') {
-    cookie = Object.entries(cookie)
-      .map(([key, value]) => `${key}=${value}`)
-      .join('; ');
-  }
+  // if (cookie != null && typeof cookie === 'string') {
+  //   cookie = cookie.replace(/fe_session-[^=]*=[^;]*$/, '').replace(/fe_session-[^=]*=[^;]*;/, '');
+  // }
+  // if (cookie != null && typeof cookie === 'object') {
+  //   cookie = Object.entries(cookie)
+  //     .map(([key, value]) => `${key}=${value}`)
+  //     .join('; ');
+  // }
 
   const preparedHeaders: Record<string, string> = {
     authorization: headers['authorization'],
@@ -84,7 +84,7 @@ export function buildRequestHeaders(headers: Record<string, any>): Record<string
 }
 
 /**
- * Return parsed json response if http status code = 200
+ * Return parsed json response if http status code = 20https://github.com/highestblue/frontegg-nextjs.git0
  * @param res
  */
 export const parseHttpResponse = async <T>(res: Response): Promise<T | undefined> => {
